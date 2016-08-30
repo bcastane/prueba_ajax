@@ -1,0 +1,36 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= column_chart  @mayores_empresas %>
+<% @empresa=Empresa.new%>
+<%= render 'empresas/form' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Empresas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Rubro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="insertar">
+    <% @empresas.each do |empresa| %>
+      <tr id="<%= empresa.id %>">
+        <td><%= empresa.nombre %></td>
+        <td><%= empresa.rubro %></td>
+        <td><%= link_to 'Show', empresa %></td>
+        <td><%= link_to 'Edit', edit_empresa_path(empresa) , remote:true %></td>
+        <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' , remote:true} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empresa', new_empresa_path %>
+
+

@@ -1,0 +1,7 @@
+	   <tr id="<%= empresa.id %>">
+        <td><%= empresa.nombre %></td>
+        <td><%= empresa.rubro %></td>
+        <td><%= link_to 'Show', empresa %></td>
+        <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
+        <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?', remote:true }  %></td>
+      </tr>

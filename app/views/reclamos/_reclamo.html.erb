@@ -1,0 +1,7 @@
+		<tr>
+        <td><%= reclamo.user.email %></td>
+        <td><%= reclamo.texto %></td>
+        <td><%= link_to 'Show', reclamo %></td>
+        <td><%= link_to 'Edit', edit_reclamo_path(reclamo) %></td>
+        <td><%= link_to 'Destroy', reclamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

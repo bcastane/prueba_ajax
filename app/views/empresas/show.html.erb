@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= line_chart @reclamos_por_dia %>
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @empresa.nombre %>
+</p>
+
+<p>
+  <strong>Rubro:</strong>
+  <%= @empresa.rubro %>
+</p>
+
+<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
+<%= link_to 'Back', empresas_path %>
+
+<% @reclamo=Reclamo.new %>
+<%= render "reclamos/form" %>
+
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Texto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="ingresar">
+    <% @empresa.reclamos.each do |reclamo| %>
+      <tr>
+        <td><%= reclamo.user.email %></td>
+        <td><%= reclamo.texto %></td>
+        <td><%= link_to 'Show', reclamo %></td>
+        <td><%= link_to 'Edit', edit_reclamo_path(reclamo) %></td>
+        <td><%= link_to 'Destroy', reclamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

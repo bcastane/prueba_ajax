@@ -1,0 +1,24 @@
+<%= form_for(@reclamo, remote: true) do |f| %>
+  <% if @reclamo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reclamo.errors.count, "error") %> prohibited this reclamo from being saved:</h2>
+
+      <ul>
+      <% @reclamo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field 'empresa_id', :value => @empresa.id %>
+  
+
+  <div class="field">
+    <%= f.label :texto %><br>
+    <%= f.text_field :texto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
